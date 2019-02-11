@@ -9,8 +9,9 @@
 
 function isEmpty(obj) {
     for(let key in obj) {
-        if(obj.hasOwnProperty(key))
+        if(obj.hasOwnProperty(key)) {
             return false;
+        }
     }
     return true;
 }
@@ -22,15 +23,13 @@ function isEmpty(obj) {
   * @return     {<type>}  Zipped object.
   */
 
-const zip = (...objects) =>
-{
+const zip = (...objects) => {
 	let result = {};
-	for (let i = objects.length - 1; i >= 0; i--)
-	{
-		if(isEmpty(objects[i]))
+	for (let i = objects.length - 1; i >= 0; i--) {
+		if(isEmpty(objects[i])) {
 			continue;
-		for(let field in objects[i])
-		{
+		}
+		for(let field in objects[i]) {
 			result[field] = objects[i][field];
 		}
 	}
