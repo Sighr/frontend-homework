@@ -21,18 +21,6 @@ function isEmpty(obj) {
 	* @param      {Array}   objects  The array of the objects
 	* @return     {object}  Zipped object.
 	*/
-// const zip = (...objects) => {
-// 	let result = {};
-// 	for (let i = objects.length - 1; i >= 0; i--) {
-// 		if(isEmpty(objects[i])) {
-// 			continue;
-// 		}
-// 		for(let field in objects[i]) {
-// 			result[field] = objects[i][field];
-// 		}
-// 	}
-// 	return result;
-// }
 const zip = (...objects) => {
 	return objects.reduceRight((result, current) => {
 		if(isEmpty(current)) {
