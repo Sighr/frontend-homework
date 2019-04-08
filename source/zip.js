@@ -1,19 +1,4 @@
-'use strict'
-
- /**
-	* Determines if empty.
-	*
-	* @param      {object}   obj     The object
-	* @return     {boolean}  True if empty, False otherwise.
-	*/
-function isEmpty(obj) {
-	for(let key in obj) {
-			if(obj.hasOwnProperty(key)) {
-					return false;
-			}
-	}
-	return true;
-}
+'use strict';
 
  /**
 	* Zip array of objects into one. Repeating fields are added just once.
@@ -22,13 +7,8 @@ function isEmpty(obj) {
 	* @return     {object}  Zipped object.
 	*/
 const zip = (...objects) => {
-	return objects.reduceRight((result, current) => {
-		if(isEmpty(current)) {
-			return result;
-		}
-		for(let field in current) {
-			result[field] = current[field];
-		}
-		return result;
-	}, {})
-}
+	let array = [...objects];
+	array = array.filter((elem) => {return elem != null && typeof elem !== 'undefined'});
+	array.push({});
+	return Object.assign(...array.reverse());
+};
